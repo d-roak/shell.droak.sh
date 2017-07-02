@@ -1,18 +1,32 @@
+p {
+  text-align: justify;
+}
+
 #header {
   background: #f8f8f8;
+  width: 30%;
+  margin: 0 auto;
+  border-radius: 0 0 20px 20px;
 }
 
 .navbar .navbar-collapse a {
   color: grey;
 }
 
-#section1 {
-  margin: 5em 0 2em 0;
-  width: 500px;
+#section1 .container{
+  margin: 4em auto;
+  width: 50%;
+}
+
+#section1 .container .row:first-child {
+  text-align: center;
+  margin-bottom: 3em;
+  width: 100%;
 }
 
 .picture {
-  width: 100%;
+  width: 25%;
+  margin: 0 auto;
   border-radius: 100%;
 }
 
