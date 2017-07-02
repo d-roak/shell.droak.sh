@@ -11,6 +11,14 @@ p {
   text-align: justify;
 }
 
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
 #header {
   background: #f8f8f8;
   width: 30%;
