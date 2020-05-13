@@ -1,16 +1,7 @@
 
 var terminal = $('#terminal');
 var caret = $('#caret');
-var header = "\
-   ____          _     __          __    _                                <br/>\
-  / __ \\        | |    \\ \\        / /   | |                               <br/>\
- | |  | |  __ _ | | __  \\ \\  /\\  / /___ | |__   _ __    __ _   __ _   ___ <br/>\
- | |  | | / _` || |/ /   \\ \\/  \\/ // _ \\| '_ \\ | '_ \\  / _` | / _` | / _ \\<br/>\
- | |__| || (_| ||   <     \\  /\\  /|  __/| |_) || |_) || (_| || (_| ||  __/<br/>\
-  \\____/  \\__,_||_|\\_\\     \\/  \\/  \\___||_.__/ | .__/  \\__,_| \\__, | \\___|<br/>\
-                                               | |             __/ |      <br/>\
-                                               |_|            |___/       <br/>";
-var hist = header + "[root@tripleoak]$ cat intro.txt<br/>\
+var hist = "[root@tripleoak]$ cat intro.txt<br/>\
 Hello and welcome to my page!<br/>\
 Feel free to explore all the content.<br/>\
 Type 'help' to check the commands available.<br/>";
