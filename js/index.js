@@ -1,11 +1,11 @@
 
 var terminal = $('#terminal');
 var caret = $('#caret');
-var hist = "[root@tripleoak]$ cat intro.txt<br/>\
+var hist = "[root@tripleoak.pt]$ cat intro.txt<br/>\
 Hello and welcome to my page!<br/>\
 Feel free to explore all the content.<br/>\
 Type 'help' to check the commands available.<br/>";
-var initLine = "[root@tripleoak]$ ";
+var initLine = "[root@tripleoak.pt]$ ";
 var curLine = "";
 
 // caret animation
