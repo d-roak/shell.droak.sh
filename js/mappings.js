@@ -1,8 +1,9 @@
 
 const help = {
   "ls": "List directory contents",
-  "cat": "Concatenate files and print on the standard output",
+  "read": "Read content of file",
   "clear": "Clear the terminal screen",
+  "contact": "Drop me an email",
   "github": "Open my github page",
   "linkedin": "Open my linkedin page"
 }
@@ -12,7 +13,11 @@ const files = {
     "permissions": "-rw-r--r--",
     "owner": "root root",
     "size": "113",
-    "datetime": "May 13 20:42",
+    "date": "May 13",
     "name": "intro.txt"
   }
+}
+
+const files_content = {
+  "intro": "Hello and welcome to my page!<br/>Feel free to explore all the content.<br/>Type 'help' to check the commands available."
 }

@@ -1,10 +1,9 @@
 
 var terminal = $('#terminal');
 var caret = $('#caret');
-var hist = "[root@tripleoak.pt]$ cat intro.txt<br/>\
-Hello and welcome to my page!<br/>\
-Feel free to explore all the content.<br/>\
-Type 'help' to check the commands available.<br/>";
+var hist = "[root@tripleoak.pt]$ read intro.txt<br/>" + processCommand("read intro.txt");
+var hist_cmd = [];
+var hist_i = 0;
 var initLine = "[root@tripleoak.pt]$ ";
 var curLine = "";
 
@@ -22,6 +21,10 @@ $('html').on('keydown', function(e) {
     hist += initLine + curLine + "<br/>";
     out = processCommand(curLine);
     hist += out;
+    if(curLine !== "") {
+      hist_cmd.push(curLine);
+      hist_i = hist_cmd.length;
+    }
     curLine = "";
     terminal.html(hist + initLine);
   } else if(e.key === "Backspace") {
@@ -30,12 +33,25 @@ $('html').on('keydown', function(e) {
   } else if(e.key.length === 1 && e.key.match(/[a-z0-9 .-_]/i)) {
     curLine += e.key;
     terminal.html(hist + initLine + curLine);
+  } else if(e.keyCode === 38) {
+    hist_i = (hist_i - 1 < 0) ? 0: hist_i - 1;
+    curLine = hist_cmd[hist_i];
+    if(curLine === undefined)
+      curLine = "";
+    terminal.html(hist + initLine + curLine);
+  } else if(e.keyCode === 40) {
+    hist_i = (hist_i + 1 > hist_cmd.length) ? hist_cmd.length: hist_i + 1;
+    curLine = hist_cmd[hist_i];
+    if(curLine === undefined)
+      curLine = "";
+    terminal.html(hist + initLine + curLine);
   }
   caret.removeClass('transparent');
 });
 
 function processCommand(command) {
   argv = command.split(" ");
+  argc = argv.length;
   switch(argv[0]) {
     case "help":
       tmp = "";
@@ -50,24 +66,35 @@ function processCommand(command) {
         tmp += files[k].permissions + " ";
         tmp += files[k].owner + " ";
         tmp += files[k].size + " ";
-        tmp += files[k].datetime + " ";
+        tmp += files[k].date + " ";
         tmp += files[k].name + "<br/>";
       }
       return tmp;
       break;
-    case "cat":
-      return "cat<br/>";
+    case "read":
+      content = files_content[argv[1].replace(".txt", "")];
+      if(content === undefined)
+        return "No such file: " + argv[1] + "<br/>";
+      else
+        return content + "<br/>";
       break;
     case "clear":
       hist = "";
       return "";
       break;
+    case "contact":
+      window.location.href = "mailto:joao.carvalho@tripleoak.pt";
+      return "";
+      break;
     case "github":
-      var win = window.open("https://github.com/jpldcarvalho", '_blank');
+      window.open("https://github.com/jpldcarvalho", '_blank');
       return "";
       break;
     case "linkedin":
-      var win = window.open("https://www.linkedin.com/in/jpldcarvalho/", '_blank');
+      window.open("https://www.linkedin.com/in/jpldcarvalho/", '_blank');
+      return "";
+      break;
+    case "":
       return "";
       break;
     default:
