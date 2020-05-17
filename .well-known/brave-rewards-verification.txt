@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: jpldcarvalho.com
+Token: aebe140fd198830615f9c012f9e0413d5414a0105afad3946dd0a7b123b55aaf
