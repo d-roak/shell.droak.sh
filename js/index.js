@@ -1,10 +1,10 @@
 
 var terminal = $('#terminal');
 var caret = $('#caret');
-var hist = "[root@tripleoak.pt]$ read intro.txt<br/>" + processCommand("read intro.txt");
+var hist = "[jpldcarvalho@tripleoak.pt]$ read intro.txt<br/>" + processCommand("read intro.txt");
 var hist_cmd = [];
 var hist_i = 0;
-var initLine = "[root@tripleoak.pt]$ ";
+var initLine = "[jpldcarvalho@tripleoak.pt]$ ";
 var curLine = "";
 
 // caret animation
@@ -15,8 +15,13 @@ setInterval(function() {
 // initial text
 terminal.html(hist + initLine);
 
+// disable right click
+document.addEventListener('contextmenu', event => event.preventDefault());
+
 // main
 $('html').on('keydown', function(e) {
+  if(event.ctrlKey && event.shiftKey && event.keyCode==73)
+    return false;  //Prevent from ctrl+shift+i
   if(e.key === "Enter") {
     hist += initLine + curLine + "<br/>";
     out = processCommand(curLine);
@@ -72,9 +77,13 @@ function processCommand(command) {
       return tmp;
       break;
     case "read":
-      content = files_content[argv[1].replace(".txt", "")];
+      content = files_content[argv[1].replace(/.txt|.pdf/, "")];
       if(content === undefined)
         return "No such file: " + argv[1] + "<br/>";
+      else if(content.includes("curriculum")) {
+        window.open(content, '_blank');
+        return "";
+      }
       else
         return content + "<br/>";
       break;
@@ -83,7 +92,9 @@ function processCommand(command) {
       return "";
       break;
     case "contact":
-      window.location.href = "mailto:joao.carvalho@tripleoak.pt";
+      var a = "joao.carvalho";
+      var b = "tripleoak.pt";
+      window.location.href = "mailto:" + a + "@" + b;
       return "";
       break;
     case "github":
