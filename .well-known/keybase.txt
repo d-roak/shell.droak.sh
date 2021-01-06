@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/jpldcarvalho
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://jpldcarvalho.com
+  * I am jpldcarvalho (https://keybase.io/jpldcarvalho) on keybase.
+  * I have a public key ASDNbBoJwtJsaRI3QQPiwk0BbkNU1BPG9AB1udLzEuYsswo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0120cd6c1a09c2d26c6912374103e2c24d016e4354d413c6f40075b9d2f312e62cb30a",
+      "host": "keybase.io",
+      "kid": "0120cd6c1a09c2d26c6912374103e2c24d016e4354d413c6f40075b9d2f312e62cb30a",
+      "uid": "a5478d637a0b41494ec8e63869577319",
+      "username": "jpldcarvalho"
+    },
+    "merkle_root": {
+      "ctime": 1609926139,
+      "hash": "d490ba3cdae4e01ea480d523178f8c085e160c0a11e2424bd96474f90e412053a36785892f6d5989f00949bb7258066e62e8c9c6161d3a19d1c52491cfd29ac3",
+      "hash_meta": "39b16907dbd98903c294440a29d1939cbf1909c190dd1419e526c305d067100a",
+      "seqno": 18609516
+    },
+    "service": {
+      "entropy": "ycIRja14AMXhmUKTNIiWRw5H",
+      "hostname": "jpldcarvalho.com",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.5.2"
+  },
+  "ctime": 1609926156,
+  "expire_in": 504576000,
+  "prev": "46184818cc79ef1e12f8e9b0ddf2712e05ef7f1b81b3bcb88712d1072571fa0a",
+  "seqno": 14,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgzWwaCcLSbGkSN0ED4sJNAW5DVNQTxvQAdbnS8xLmLLMKp3BheWxvYWTESpcCDsQgRhhIGMx57x4S+Omw3fJxLgXvfxuBs7y4hxLRByVx+grEIOUiS3KE6R6PoLDD8Kr91CNw8S2alBwXG46zrqPj4Hu4AgHCo3NpZ8RAEabqa8IECTIEPh1m9ZjvqtGYFywNLS9ZeVcr40p5seTUVieZZBx8qQRm28hmquZLBacoShMqosNdLmqqN7FWCqhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIAwx6PC7Zx8u2jqKv8rZf/TirieoMCzPPa5pRUwYaMB6o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/jpldcarvalho
+
+==================================================================
