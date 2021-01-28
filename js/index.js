@@ -35,6 +35,7 @@ $('html').on('keydown', function(e) {
   } else if(e.key === "Backspace") {
     curLine = curLine.slice(0, -1);
     terminal.html(hist + initLine + curLine);
+    return false;
   } else if(e.key.length === 1 && e.key.match(/[a-z0-9 .-_]/i)) {
     curLine += e.key;
     terminal.html(hist + initLine + curLine);
