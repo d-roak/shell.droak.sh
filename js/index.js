@@ -1,10 +1,11 @@
-
+var a = "joao.carvalho";
+var b = "tripleoak.pt";
 var terminal = $('#terminal');
 var caret = $('#caret');
-var hist = "[jpldcarvalho@tripleoak.pt]$ read intro.txt<br/>" + processCommand("read intro.txt");
+var hist = "["+a+"@"+b+"]$ read intro.txt<br/>" + processCommand("read intro.txt");
 var hist_cmd = [];
 var hist_i = 0;
-var initLine = "[jpldcarvalho@tripleoak.pt]$ ";
+var initLine = "["+a+"@"+b+"]$ ";
 var curLine = "";
 
 // caret animation
@@ -93,8 +94,6 @@ function processCommand(command) {
       return "";
       break;
     case "contact":
-      var a = "joao.carvalho";
-      var b = "tripleoak.pt";
       window.location.href = "mailto:" + a + "@" + b;
       return "";
       break;
