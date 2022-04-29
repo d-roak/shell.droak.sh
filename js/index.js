@@ -1,5 +1,5 @@
-var a = "joao.carvalho";
-var b = "tripleoak.pt";
+var a = "me";
+var b = "jpldcarvalho.com";
 var terminal = $('#terminal');
 var caret = $('#caret');
 var hist = "["+a+"@"+b+"]$ read intro.txt<br/>" + processCommand("read intro.txt");
