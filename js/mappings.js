@@ -1,7 +1,7 @@
 
 const help = {
   "ls": "List directory contents",
-  "read": "Read content of file",
+  "cat": "Read content of file",
   "clear": "Clear the terminal screen",
   "contact": "Drop me an email",
   "github": "Open my github page",

@@ -2,7 +2,7 @@ var a = "me";
 var b = "jpldcarvalho.com";
 var terminal = $('#terminal');
 var caret = $('#caret');
-var hist = "["+a+"@"+b+"]$ read intro.txt<br/>" + processCommand("read intro.txt");
+var hist = "["+a+"@"+b+"]$ cat intro.txt<br/>" + processCommand("cat intro.txt");
 var hist_cmd = [];
 var hist_i = 0;
 var initLine = "["+a+"@"+b+"]$ ";
@@ -78,7 +78,7 @@ function processCommand(command) {
       }
       return tmp;
       break;
-    case "read":
+    case "cat":
       content = files_content[argv[1].replace(/.txt|.pdf/, "")];
       if(content === undefined)
         return "No such file: " + argv[1] + "<br/>";
