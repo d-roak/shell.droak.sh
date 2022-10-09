@@ -7,10 +7,14 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="screen_container">
-    <div style="white-space: pre; font: 14px monospace; line-height: 14px;"></div>
-    <canvas style="display: none"></canvas>
+  <script src="lib/v86/libv86.js"></script>
+  <script src="index.js"></script>
+  <div id="screen_container">
+    <div id="screen"></div>
+    <canvas id="vga"></canvas>
+    <div style="position: absolute; top: 0; z-index: 10">
+        <textarea class="phone_keyboard"></textarea>
+    </div>
   </div>
-  <script src="js/index.js"></script>
 </body>
 </html>
