@@ -13,17 +13,17 @@
     {
       "type": "qemu",
       "boot_command": [
-        "<enter><wait10>",
+        "<enter><wait30>",
         "dhcpcd<enter><wait25>",
         "usermod --password $(echo toor | openssl passwd -1 -stdin) root<enter><wait10>",
         "systemctl start sshd<enter>"
       ],
       "headless": false,
       "boot_wait": "10s",
-      "disk_size": 1500,
+      "disk_size": 2000,
       "disk_interface": "ide",
-      "iso_url": "https://mirror.archlinux32.org/archisos/archlinux32-2022.10.01-i686.iso",
-      "iso_checksum": "1ffd9cb6d8c66412af1a7905747fca95e7af89a570d862d142970ae4aad21c83",
+      "iso_url": "https://mirror.archlinux32.org/archisos/archlinux32-2021.12.01-i686.iso",
+      "iso_checksum": "90c6f5aecb095d5578f6c9970539da7c5e9324ec",
       "ssh_wait_timeout": "120s",
       "ssh_pty": true,
       "ssh_username": "root",

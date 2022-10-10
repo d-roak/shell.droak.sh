@@ -14,16 +14,10 @@ mkfs -t ext4 /dev/sda1
 echo "Mounting new filesystem"
 mount -t ext4 /dev/sda1 /mnt
 
-echo "Create pacman package cache dir"
-mkdir -p /mnt/var/cache/pacman/pkg
-
-# We don't want the pacman cache to fill up the image. After reboot whatever tarballs pacman has cached are gone.
-echo "Mount the package cache dir in memory so it doesn't fill up the image"
-mount -t tmpfs none /mnt/var/cache/pacman/pkg
-
 # Install the Archlinux base system
 echo "Performing pacstrap"
-pacstrap -i /mnt base --noconfirm
+sed -i 's/SigLevel    = Required DatabaseOptional/SigLevel = Never/g' /etc/pacman.conf
+pacstrap -i /mnt base linux linux-firmware --noconfirm
 
 echo "Writing fstab"
 genfstab -p /mnt >> /mnt/etc/fstab
@@ -75,14 +69,6 @@ sed -i 's/SigLevel    = Required DatabaseOptional/SigLevel = Never/g' /mnt/etc/p
 echo "Writing the installation script"
 cat << 'EOF' > /mnt/bootstrap.sh
 #!/usr/bin/bash
-# pacman -S archlinux32-keyring-transition --noconfirm
-# pacman -Sy archlinux32-keyring --noconfirm
-# pacman-key --refresh-keys
-pacman-key --recv-keys C8E8F5A0AF9BA7E7
-pacman-key --recv-keys 2C146C01A952AC0F
-pacman -Scc --noconfirm
-pacman -Syyu --noconfirm
-
 echo "Re-generate initial ramdisk environment"
 pacman -S mkinitcpio --noconfirm
 echo "Configure mkinitcpio for 9p"
@@ -97,6 +83,7 @@ echo "Setting grub timeout to 0 seconds"
 sed -i 's/GRUB_TIMEOUT=5/GRUB_TIMEOUT=0/g' /etc/default/grub
 
 echo "Installing bootloader"
+update-grub
 grub-install --target=i386-pc --recheck /dev/sda --force
 
 echo "Writing grub config"

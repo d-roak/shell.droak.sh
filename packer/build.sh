@@ -19,9 +19,9 @@ sudo losetup -d /dev/loop0 || /bin/true
 # a json mapping of it and copy it to host on the webserver
 mkdir -p diskmount
 echo "Mounting the created image so we can convert it to a p9 image"
-sudo losetup /dev/loop0 output-qemu/Archlinux-v86
-sudo kpartx -a /dev/loop0
-sudo mount /dev/mapper/loop0p1 diskmount
+sudo losetup /dev/loop99 output-qemu/Archlinux-v86
+sudo kpartx -a /dev/loop99
+sudo mount /dev/mapper/loop99p1 diskmount
 
 # make images dir
 mkdir -p output/images
@@ -38,8 +38,8 @@ sudo chown -R $(whoami):$(whoami) output/arch
 # clean up mount
 echo "Cleaning up mounts"
 sudo umount diskmount -f
-sudo kpartx -d /dev/loop0
-sudo losetup -d /dev/loop0
+sudo kpartx -d /dev/loop99
+sudo losetup -d /dev/loop99
 
 # Move the image to the images dir
-cp output-qemu/Archlinux-v86 output/images/arch.img
+mv output-qemu/Archlinux-v86 output/images/arch.img
